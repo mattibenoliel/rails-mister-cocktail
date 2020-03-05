@@ -1,0 +1,23 @@
+<h1>Add Doses & Ingredients</h1>
+
+
+<%= simple_form_for [@cocktail, @dose] do |f| %>
+  <% if @dose.errors.any? %>
+    <div class="errors-container">
+      <ul>
+        <% @dose.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+    <%= f.label :description %>
+    <%= f.text_field :description %>
+    <%= f.association :ingredient %>
+    <%= f.submit %>
+
+<% end %>
+
+
+    <%= link_to "Back", cocktails_path  %>
+

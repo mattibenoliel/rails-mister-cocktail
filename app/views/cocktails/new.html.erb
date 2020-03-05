@@ -1,0 +1,24 @@
+<h1>New Cocktail</h1>
+
+<%= simple_form_for(@cocktail) do |f| %>
+  <% if @cocktail.errors.any? %>
+    <div class="errors-container">
+      <ul>
+        <% @cocktail.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <%= simple_form_for(@cocktail) do |f| %>
+    <p><%= f.input :name %></p>
+    <p><%= f.input :url %></p>
+    <%= f.submit %>
+    <% end %>
+<% end %>
+<%= link_to "Back", cocktails_path  %>
+
+
+
+
+

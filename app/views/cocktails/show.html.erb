@@ -1,0 +1,15 @@
+<h1><%= @cocktail.name %></h1>
+
+<p><%= link_to "Add doses", new_cocktail_dose_path(@cocktail)  %></p>
+<ul>
+  <% @doses.each do |dose| %>
+    <li><%=  dose.description %> - <%=  dose.ingredient.name %></li>
+    <%= link_to "delete",
+            dose_path(dose), # le combo de cette ligne et celle d'en dessous permet de supprimer. cette ligne fais reference a la route, s'il y avait pas la ligne du dessous cette route aurait chercher un get
+            method: :delete,
+            data: { confirm: "Are you sure?" },
+            class: "delete-button" %>
+  <% end %>
+</ul>
+
+<%= link_to "Back", cocktails_path  %>
