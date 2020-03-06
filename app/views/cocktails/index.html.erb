@@ -1,17 +1,17 @@
-<h1>My Cocktails</h1>
-<p><%= link_to "New Cocktail", new_cocktail_path  %></p>
+<div id="body-index">
+  <h1 class="title">My Cocktails</h1>
 
-<div>
-  <% @cocktails.each do |cocktail| %>
+  <div class="container-card">
+    <% @cocktails.each do |cocktail| %>
 
-  <div class="card" style="width: 18rem;">
-      <div class="card-body">
-        <p><%= link_to cocktail.name, cocktail_path(cocktail)  %></p>
-      </div>
+    <div class="card" style="width: 18rem;">
+        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path cocktail.photo.key, height: 300, width: 400, crop: :fill %>')">
+          <p><%= link_to cocktail.name, cocktail_path(cocktail)  %></p>
+        </div>
 
+    </div>
+
+
+    <% end %>
   </div>
-
-
-
-  <% end %>
 </div>
